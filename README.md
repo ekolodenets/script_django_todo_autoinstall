@@ -1,7 +1,7 @@
 # script_django_todo_autoinstall
 
 Script steps:
-1 creating virtual environment
+[1] creating virtual environment
 2 upgrade pip and install django files
 3 creating project and app
 4 adding project name to settings
