@@ -35,14 +35,14 @@ call %env% & python.exe -m pip install --upgrade pip & pip install django
 if not exist "%core%" (echo Creating core of the project...
 django-admin startproject %core% .
 echo %time%  core of the project succesfully created>> %logfile%
-goto project_creating)
+goto app_creating)
 
 
 if exist "%core%" (echo Project already exists
 echo %time%	 core of the project already exists>> %logfile%)
 
 
-:project_creating
+:app_creating
 if not exist "%app_name%" (echo Creating app %app_name%...
 py manage.py startapp %app_name%
 echo %time%  app %app_name% succesfully created>> %logfile%
@@ -106,9 +106,9 @@ echo %time%  main urls file modified>> %logfile%
 
 
 
-::Project URLS
->nul find "project urls file created" %logfile% && (
-  echo %time%  project urls file already exists>> %logfile%
+::App URLS
+>nul find "app urls file created" %logfile% && (
+  echo %time%  app urls file already exists>> %logfile%
 ) || (
 cd %app_name%
 (
@@ -124,7 +124,7 @@ echo     path('update/^<int:todo_id^>/', views.update, name='update'^),
 echo ]
 ) > urls.py
 cd..
-echo %time%  project urls file created>> %logfile% 
+echo %time%  app urls file created>> %logfile% 
 )
 
 
@@ -252,10 +252,11 @@ python manage.py makemigrations
 python manage.py migrate
 
 if %pass% == on python manage.py createsuperuser --username %user% --email %mail% --noinput & py manage.py changepassword %user%
+
 >nul find "===project succesfully installed===" %logfile% && (
   echo %time%  project was reinstalled>> %logfile%
 ) || (
 echo  ===project succesfully installed===
 echo %time%  ===project succesfully installed===>> %logfile%
 )
-pause
+python manage.py runserver
