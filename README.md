@@ -1,4 +1,5 @@
-# script_django_todo_autoinstall
+# Django To-Do
+## Have you ever dreamed about creating something with only one double-click? Now you can do this. This file allow you to create To-Do app in Django. Have fun!
 
 Script steps:
 - 1 creating virtual environment
