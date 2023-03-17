@@ -1,5 +1,5 @@
 # Django To-Do
-## Have you ever dreamed about creating something with only one double-click? Now you can do this. This file allow you to create To-Do app in Django. Have fun!
+## Have you ever dreamed about creating something with only one double-click? Now you can do this. This file allows you to create To-Do app in Django. Have fun!
 
 Script steps:
 - 1 creating virtual environment
